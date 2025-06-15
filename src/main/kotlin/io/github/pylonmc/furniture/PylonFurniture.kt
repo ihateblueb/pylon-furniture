@@ -22,7 +22,6 @@ class PylonFurniture : JavaPlugin(), PylonAddon {
         get() = mutableSetOf(Locale.ENGLISH)
 
     companion object {
-        @Getter
-        private var instance: PylonFurniture? = null
+        lateinit var instance: PylonFurniture
     }
 }
