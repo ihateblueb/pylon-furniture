@@ -1,6 +1,6 @@
-package io.github.pylonmc.furniture.util
+package io.github.pylonmc.pylon.furniture.util
 
-import io.github.pylonmc.furniture.PylonFurniture
+import io.github.pylonmc.pylon.furniture.PylonFurniture
 import org.bukkit.NamespacedKey
 
 class KeyUtils private constructor() {

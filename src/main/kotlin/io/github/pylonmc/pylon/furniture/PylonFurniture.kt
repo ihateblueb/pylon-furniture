@@ -1,7 +1,6 @@
-package io.github.pylonmc.furniture
+package io.github.pylonmc.pylon.furniture
 
 import io.github.pylonmc.pylon.core.addon.PylonAddon
-import lombok.Getter
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.*
 
@@ -10,6 +9,10 @@ class PylonFurniture : JavaPlugin(), PylonAddon {
         instance = this
 
         registerWithPylon()
+
+        PylonItems.Companion
+        PylonBlocks.Companion
+        PylonEntities.Companion
     }
 
     override val javaPlugin: JavaPlugin
