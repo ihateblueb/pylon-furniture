@@ -15,6 +15,7 @@ class PylonItems {
     companion object {
         init {
             PylonItem.register(WoodenStool.Item::class.java, WoodenStool.STACK, WoodenStool.KEY)
+            GuidePages.SEATING.addItem(WoodenStool.KEY)
             val recipe = ShapedRecipe(WoodenStool.KEY, WoodenStool.STACK)
                 .shape("   ", " P ", " L ")
                 .setIngredient('P', Material.OAK_PLANKS)

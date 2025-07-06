@@ -16,6 +16,7 @@ class PylonFurniture : JavaPlugin(), PylonAddon {
         PylonItems.Companion
         PylonBlocks.Companion
         PylonEntities.Companion
+        GuidePages.Companion
     }
 
     override val javaPlugin: JavaPlugin

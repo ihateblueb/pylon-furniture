@@ -1,4 +1,11 @@
 addon: "Furniture"
+
 item:
   wooden_stool:
     name: "Wooden Stool"
+
+guide:
+  page:
+    furniture: "Furniture"
+    seating: "Seating"
+    tables: "Tables"
