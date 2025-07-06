@@ -2,7 +2,7 @@ package io.github.pylonmc.pylon.furniture
 
 import io.github.pylonmc.pylon.furniture.items.WoodenStool
 import io.github.pylonmc.pylon.core.item.PylonItem
-import io.github.pylonmc.pylon.core.recipe.RecipeTypes
+import io.github.pylonmc.pylon.core.recipe.RecipeType
 import org.bukkit.Material
 import org.bukkit.inventory.ShapedRecipe
 import org.bukkit.inventory.recipe.CraftingBookCategory
@@ -20,7 +20,7 @@ class PylonItems {
                 .setIngredient('P', Material.OAK_PLANKS)
                 .setIngredient('L', Material.OAK_LOG)
             recipe.setCategory(CraftingBookCategory.BUILDING)
-            RecipeTypes.VANILLA_CRAFTING.addRecipe(recipe)
+            RecipeType.VANILLA_SHAPED.addRecipe(recipe)
         }
     }
 }

@@ -18,38 +18,34 @@ import org.bukkit.entity.ItemDisplay
 import org.bukkit.event.player.PlayerInteractEntityEvent
 import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataContainer
-import java.util.*
 
 class WoodenStool : PylonBlock, PylonEntityHolderBlock {
     class Item(stack: ItemStack) : PylonItem(stack)
 
-    override val heldEntities: MutableMap<String, UUID>
-
     @Suppress("unused")
     constructor(block: Block, context: BlockCreateContext) : super(block) {
         block.type = Material.STRUCTURE_VOID
-
-        val seat = SeatDisplay.Companion.make(block)
-
-        this.heldEntities = HashMap<String, UUID>(
-            mapOf<String, UUID>(
-                Pair("seat", seat.uuid),
-                Pair("leg_1", LegDisplay.Companion.make(block, -0.25, -0.25).uuid),
-                Pair("leg_2", LegDisplay.Companion.make(block, 0.25, -0.25).uuid),
-                Pair("leg_3", LegDisplay.Companion.make(block, -0.25, 0.25).uuid),
-                Pair("leg_4", LegDisplay.Companion.make(block, 0.25, 0.25).uuid),
-            )
-        )
     }
 
     @Suppress("unused")
-    constructor(block: Block, pdc: PersistentDataContainer) : super(block) {
-        this.heldEntities = loadHeldEntities(pdc).toMutableMap()
+    constructor(block: Block, pdc: PersistentDataContainer) : super(block)
+
+    override fun createEntities(context: BlockCreateContext): Map<String, PylonEntity<*>> {
+        val seat = SeatDisplay.make(block)
+        val leg1Display = LegDisplay.make(block, -0.25, -0.25)
+        val leg2Display = LegDisplay.make(block, 0.25, -0.25)
+        val leg3Display = LegDisplay.make(block, -0.25, 0.25)
+        val leg4Display = LegDisplay.make(block, 0.25, 0.25)
+
+        return mapOf(
+            "seat" to seat,
+            "leg1" to leg1Display,
+            "leg2" to leg2Display,
+            "leg3" to leg3Display,
+            "leg4" to leg4Display,
+        )
     }
 
-    override fun write(pdc: PersistentDataContainer) {
-        saveHeldEntities(pdc)
-    }
 
     class SeatDisplay : PylonEntity<ItemDisplay>, PylonInteractableEntity {
         @Suppress("unused")
